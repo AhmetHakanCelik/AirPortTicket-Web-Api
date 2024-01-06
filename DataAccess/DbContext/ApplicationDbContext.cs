@@ -21,12 +21,18 @@ namespace DataAccess.DbContext
             builder.Ignore<IdentityUserLogin<Guid>>();
             builder.Ignore<IdentityUserToken<Guid>>();
             builder.Ignore<IdentityUserRole<Guid>>();
+
+            builder.ApplyConfiguration(new BillConfig());
+            builder.ApplyConfiguration(new CustomerConfig());
+            builder.ApplyConfiguration(new TicketConfig());
+            builder.ApplyConfiguration(new PaymentConfig());
+            builder.ApplyConfiguration(new UserRoleConfig());
         }
 
-        public DbSet<BillConfig> BillConfig { get; set; }
-        public DbSet<CustomerConfig> CustomerConfig { get; set; }
-        public DbSet<PaymentConfig> PaymentConfig { get; set; }
-        public DbSet<TicketConfig> TicketConfig { get; set; }
-        public DbSet<UserRoleConfig> UserRoleConfig { get; set; }
+        public DbSet<Bill> Bill { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Payment> Payment { get; set; }
+        public DbSet<Ticket> Ticket { get; set; }
+        public DbSet<UserRole> UserRole { get; set; }
     }
 }

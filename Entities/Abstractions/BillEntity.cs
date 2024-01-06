@@ -4,9 +4,10 @@
     {
         public Guid PaymentId { get; set; }
 
-        public BillEntity()
+        public BillEntity() 
         {
             PaymentId = Guid.NewGuid();
         }
+
     }
 }

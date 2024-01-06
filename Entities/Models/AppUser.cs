@@ -4,7 +4,8 @@ namespace Entities.Models
 {
     public class AppUser:IdentityUser<Guid>
     {
-        public string? Username { get; set; }
-        public int Password {  get; set; }
+        public string Name { get; set; } = null!;
+        public string LastName { get; set; } = null!;
+        public string Password { get; set; } = null!;
     }
 }

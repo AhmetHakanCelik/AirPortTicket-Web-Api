@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rcnygX9rUN6hTWusbP4zhtCqmYAmk4Tei2KrTGQDxJ0=",
+  "Source": "AirportTicket Web Api",
+  "BasePath": "_content/AirportTicket Web Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
