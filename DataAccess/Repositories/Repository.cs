@@ -19,9 +19,9 @@ namespace DataAccess.Repositories
              await _context.Set<T>().AddAsync(entities, cancellationToken);
         }
 
-        public IEnumerable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return _context.Set<T>().ToList();
+            return  _context.Set<T>().AsQueryable();
         }
 
         public async Task<T> GetByIdAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)
