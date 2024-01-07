@@ -22,6 +22,7 @@ namespace Business.Features.Customers.CreateCustomer
                 CustomerId = request.CustomerId,
                 CustomerName = request.CustomerName,
                 LastName = request.Lastname,
+                Gender = request.Gender,
                 Email = request.Email,
                 Address = request.Address,
                 Phone = request.Phone

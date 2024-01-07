@@ -1,4 +1,5 @@
-﻿using Business.Features.Payments.CreatePayment;
+﻿using Azure;
+using Business.Features.Payments.CreatePayment;
 using Business.Features.Payments.ListPayments;
 using Business.Features.Payments.RemovePayment;
 using Business.Features.Payments.UpdatePayment;
@@ -37,8 +38,8 @@ namespace AirportTicket_Web_Api.Controllers
         [HttpPost]
         public async Task<IActionResult> ListPayment(ListPaymentsCommand request, CancellationToken cancellationToken)
         {
-            await _mediator.Send(request, cancellationToken);
-            return NoContent();
+            var response = await _mediator.Send(request, cancellationToken);
+            return Ok(response);
         }
     }
 }

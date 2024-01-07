@@ -13,3 +13,4 @@ C:\Users\ahmet\Masaüstü\AirPortTicket WebApi\Business\obj\Debug\net8.0\Busines
 C:\Users\ahmet\Masaüstü\AirPortTicket WebApi\Business\obj\Debug\net8.0\refint\Business.dll
 C:\Users\ahmet\Masaüstü\AirPortTicket WebApi\Business\obj\Debug\net8.0\Business.pdb
 C:\Users\ahmet\Masaüstü\AirPortTicket WebApi\Business\obj\Debug\net8.0\ref\Business.dll
+C:\Users\ahmet\Masaüstü\AirPortTicket WebApi\Business\obj\Debug\net8.0\Business.sourcelink.json
