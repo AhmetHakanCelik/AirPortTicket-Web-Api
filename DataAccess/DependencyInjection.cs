@@ -26,6 +26,8 @@ namespace DataAccess
             services.AddScoped<ITicketRepository, TicketRepository>();
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
+            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IRoleRepository,RoleRepository>();
 
             return services;
         }

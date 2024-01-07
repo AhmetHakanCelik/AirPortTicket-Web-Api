@@ -15,3 +15,4 @@ C:\Users\ahmet\Masaüstü\AirPortTicket WebApi\DataAccess\obj\Debug\net8.0\refin
 C:\Users\ahmet\Masaüstü\AirPortTicket WebApi\DataAccess\obj\Debug\net8.0\DataAccess.pdb
 C:\Users\ahmet\Masaüstü\AirPortTicket WebApi\DataAccess\obj\Debug\net8.0\DataAccess.genruntimeconfig.cache
 C:\Users\ahmet\Masaüstü\AirPortTicket WebApi\DataAccess\obj\Debug\net8.0\ref\DataAccess.dll
+C:\Users\ahmet\Masaüstü\AirPortTicket WebApi\DataAccess\obj\Debug\net8.0\DataAccess.sourcelink.json
