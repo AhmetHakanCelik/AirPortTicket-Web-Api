@@ -19,8 +19,12 @@ namespace Business.Features.Customers.CreateCustomer
         {
             Customer customer = new()
             {
+                CustomerId = request.CustomerId,
                 CustomerName = request.CustomerName,
-                LastName = request.Lastname
+                LastName = request.Lastname,
+                Email = request.Email,
+                Address = request.Address,
+                Phone = request.Phone
             };
 
             await _customerRepository.AddAsync(customer, cancellationToken);

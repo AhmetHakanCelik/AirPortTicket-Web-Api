@@ -16,8 +16,8 @@ namespace Business.Features.Customers.ListCustomer
 
         public async Task<List<Customer>> Handle(ListCustomerCommand request, CancellationToken cancellationToken)
         {
-            var response = await _customerRepository.GetAll().ToListAsync(cancellationToken);
-            return response;
+            return await _customerRepository.GetAll().OrderBy(p => p.CustomerName).ToListAsync(cancellationToken);
+            
         }
     }
 }

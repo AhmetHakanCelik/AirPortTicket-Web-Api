@@ -1,5 +1,4 @@
-﻿
-namespace Entities.Abstractions
+﻿namespace Entities.Abstractions
 {
     public class TicketEntity
     {

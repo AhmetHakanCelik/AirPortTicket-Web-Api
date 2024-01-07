@@ -13,10 +13,9 @@ namespace Business.Features.Bills.ListBills
         {
             _billRepository = billRepository;
         }
-        public Task<List<Bill>> Handle(ListBillsCommand request, CancellationToken cancellationToken)
+        public async Task<List<Bill>> Handle(ListBillsCommand request, CancellationToken cancellationToken)
         {
-            var response = _billRepository.GetAll().ToListAsync(cancellationToken);
-            return response;
+            return await _billRepository.GetAll().ToListAsync(cancellationToken);
         }
     }
 }

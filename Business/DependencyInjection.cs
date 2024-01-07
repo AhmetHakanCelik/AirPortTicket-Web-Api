@@ -1,4 +1,5 @@
 ﻿
+using Business.Behaviour;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,6 +12,7 @@ namespace Business
             services.AddMediatR(e =>
             {
                 e.RegisterServicesFromAssemblies(typeof(DependencyInjection).Assembly);
+                e.AddOpenBehavior(typeof(ValidationBehaviour<,>));
             });
 
             services.AddValidatorsFromAssemblies(new[] { typeof(DependencyInjection).Assembly });

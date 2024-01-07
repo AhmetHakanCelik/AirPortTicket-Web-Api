@@ -3,7 +3,7 @@
 namespace Entities.Models
 {
     public sealed class Customer:CustomerEntity
-    {
+    { 
         public string CustomerName { get; set; } = null!;
         public string LastName { get; set; } = null!;
         public char Gender { get; set; }

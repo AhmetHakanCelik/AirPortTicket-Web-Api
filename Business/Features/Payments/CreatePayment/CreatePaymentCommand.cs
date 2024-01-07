@@ -3,5 +3,5 @@
 namespace Business.Features.Payments.CreatePayment
 {
     public sealed record CreatePaymentCommand
-        (int CardNumber, string FullName, int SecurityCode) : IRequest;
+        (int CardNumber, Guid CustomerId,string FullName, int SecurityCode, DateTime ExpirationDate) : IRequest;
 }

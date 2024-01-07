@@ -74,16 +74,16 @@ namespace DataAccess.Migrations
                 name: "Payments",
                 columns: table => new
                 {
-                    CardNumber = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CardId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CardNumber = table.Column<int>(type: "int", nullable: false),
                     FullName = table.Column<string>(type: "varchar(30)", nullable: false),
                     SecurityCode = table.Column<int>(type: "int", nullable: false),
                     ExpirationDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Payments", x => x.CardNumber);
+                    table.PrimaryKey("PK_Payments", x => x.CardId);
                     table.ForeignKey(
                         name: "FK_Payments_Customers_CustomerId",
                         column: x => x.CustomerId,

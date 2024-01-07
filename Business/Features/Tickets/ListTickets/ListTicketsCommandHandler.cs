@@ -16,8 +16,7 @@ namespace Business.Features.Tickets.ListTickets
 
         public async Task<List<Ticket>> Handle(ListTicketsCommand request, CancellationToken cancellationToken)
         {
-            var response = await _ticketRepository.GetAll().ToListAsync(cancellationToken);
-            return response;
+            return await _ticketRepository.GetAll().ToListAsync(cancellationToken);
         }
     }
 }

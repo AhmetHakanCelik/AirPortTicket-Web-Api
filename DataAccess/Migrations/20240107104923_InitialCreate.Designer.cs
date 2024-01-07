@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240106151357_InitialCreate")]
+    [Migration("20240107104923_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -181,11 +181,12 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.Models.Payment", b =>
                 {
-                    b.Property<int>("CardNumber")
+                    b.Property<Guid>("CardId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CardNumber"));
+                    b.Property<int>("CardNumber")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
@@ -200,7 +201,7 @@ namespace DataAccess.Migrations
                     b.Property<int>("SecurityCode")
                         .HasColumnType("int");
 
-                    b.HasKey("CardNumber");
+                    b.HasKey("CardId");
 
                     b.HasIndex("CustomerId");
 

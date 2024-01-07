@@ -1,5 +1,4 @@
-﻿
-using Entities.Abstractions;
+﻿using Entities.Abstractions;
 
 namespace Entities.Models
 {

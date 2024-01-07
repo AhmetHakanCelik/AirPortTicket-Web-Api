@@ -2,7 +2,7 @@
 
 namespace Business.Features.Payments.CreatePayment
 {
-    internal class CreatePaymentValidator:AbstractValidator<CreatePaymentCommand>
+    public class CreatePaymentValidator:AbstractValidator<CreatePaymentCommand>
     {
         public CreatePaymentValidator()
         {

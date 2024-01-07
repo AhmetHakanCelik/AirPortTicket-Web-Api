@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Business.Features.Bills.CreateBill
 {
-    internal sealed class CreateBillCommandHandler : IRequestHandler<CreateBillCommand>
+    public sealed class CreateBillCommandHandler : IRequestHandler<CreateBillCommand>
     {
         private readonly IBillRepository _billRepository;
         private readonly IUnitOfWork _unitOfWork;
@@ -19,8 +19,12 @@ namespace Business.Features.Bills.CreateBill
         {
             Bill Bill = new()
             {
+                TicketId = request.TicketId,
+                Identification_number = request.Identification_Number,
                 CustomerName = request.CustomerName,
                 CustomerLastName = request.CustomerLastName,
+                Cost = request.Cost,
+                Date = request.Date
             };
 
             await _billRepository.AddAsync(Bill, cancellationToken);

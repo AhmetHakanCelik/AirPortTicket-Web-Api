@@ -8,7 +8,7 @@ namespace DataAccess.Configs
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Payment> builder)
         {
             builder.ToTable("Payments");
-            builder.HasKey(e => e.CardNumber);
+            builder.HasKey(e => e.CardId);
             builder.Property(e => e.FullName).IsRequired();
             builder.Property(e => e.SecurityCode).IsRequired();
             builder.Property(e => e.ExpirationDate).IsRequired();

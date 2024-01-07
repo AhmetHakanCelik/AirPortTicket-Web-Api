@@ -2,7 +2,7 @@
 
 namespace Business.Features.Tickets.CreateTicket
 {
-    internal class CreateTicketValidator:AbstractValidator<CreateTicketCommand>
+    public class CreateTicketValidator:AbstractValidator<CreateTicketCommand>
     {
         public CreateTicketValidator()
         {

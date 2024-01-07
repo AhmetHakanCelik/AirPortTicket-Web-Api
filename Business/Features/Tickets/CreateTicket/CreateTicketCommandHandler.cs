@@ -19,6 +19,8 @@ namespace Business.Features.Tickets.CreateTicket
         {
             Ticket ticket = new()
             {
+                TicketId = request.TicketId,
+                CustomerId = request.CustomerId,
                 CustomerFullName = request.CustomerFullName,
                 Cost = request.Cost,
                 Date = request.Date,

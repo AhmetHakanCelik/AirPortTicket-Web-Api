@@ -17,8 +17,8 @@ namespace Business.Features.Payments.ListPayments
 
         public async Task<List<Payment>> Handle(ListPaymentsCommand request, CancellationToken cancellationToken)
         {
-            var response = await _paymentRepository.GetAll().ToListAsync(cancellationToken);
-            return response;
+            return await _paymentRepository.GetAll().ToListAsync(cancellationToken);
+            
         }
     }
 

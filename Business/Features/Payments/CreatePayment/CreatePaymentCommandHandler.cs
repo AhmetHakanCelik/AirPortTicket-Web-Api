@@ -20,8 +20,10 @@ namespace Business.Features.Payments.CreatePayment
             Payment payment = new()
             {
                 CardNumber = request.CardNumber,
+                CustomerId = request.CustomerId,
                 FullName = request.FullName,
                 SecurityCode = request.SecurityCode,
+                ExpirationDate= request.ExpirationDate,
             };
 
             await _paymentRepository.AddAsync(payment, cancellationToken);

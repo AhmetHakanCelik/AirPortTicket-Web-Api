@@ -1,6 +1,4 @@
-﻿
-using Entities.Abstractions;
-using System.ComponentModel.DataAnnotations;
+﻿using Entities.Abstractions;
 
 namespace Entities.Models
 {
