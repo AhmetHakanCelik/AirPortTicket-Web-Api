@@ -1,10 +1,12 @@
 ﻿using Business.Features.Auth.Login;
 using Business.Features.Auth.Register;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AirportTicket_Web_Api.Controllers
 {
+    [AllowAnonymous]
     public class AuthContoller : BaseController
     {
         public AuthContoller(IMediator mediator) : base(mediator)
