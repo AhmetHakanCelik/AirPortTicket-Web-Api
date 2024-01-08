@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Business.Features.Tickets.CreateTicket
 {
-    internal sealed class CreateTicketCommandHandler : IRequestHandler<CreateTicketCommand>
+    internal sealed class CreateTicketCommandHandler : IRequestHandler<CreateTicketCommand,Unit>
     {
         private readonly ITicketRepository _ticketRepository;
         private readonly IUnitOfWork _unitOfWork;
@@ -15,7 +15,7 @@ namespace Business.Features.Tickets.CreateTicket
             _unitOfWork = unitOfWork;
         }
 
-        public async Task Handle(CreateTicketCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateTicketCommand request, CancellationToken cancellationToken)
         {
             Ticket ticket = new()
             {
@@ -28,6 +28,8 @@ namespace Business.Features.Tickets.CreateTicket
 
             await _ticketRepository.AddAsync(ticket);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return Unit.Value;
         }
     }
 }

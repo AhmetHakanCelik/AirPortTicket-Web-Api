@@ -10,6 +10,8 @@ namespace Business.Features.Customers.CreateCustomer
             RuleFor(e => e.CustomerName).NotNull().WithMessage("İsim Boş olamaz");
             RuleFor(e => e.Lastname).NotEmpty().WithMessage("Soyisim Boş olamaz");
             RuleFor(e => e.Lastname).NotEmpty().WithMessage("Soyisim Boş olamaz");
+            RuleFor(e => e.Gender).NotEmpty().WithMessage("Cinsiyet Boş olamaz");
+            RuleFor(e => e.Gender).NotNull().WithMessage("Cinsiyet Boş olamaz");
             RuleFor(e => e.Phone).NotEmpty().WithMessage("Telefon Numarası Boş olamaz");
             RuleFor(e => e.Phone).NotNull().WithMessage("Telefon Numarası Boş olamaz");
             RuleFor(e => e.Email).NotEmpty().WithMessage("Email Boş olamaz");

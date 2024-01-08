@@ -6,12 +6,11 @@ namespace Business.Features.Tickets.CreateTicket
     {
         public CreateTicketValidator()
         {
-            RuleFor(e => e.CustomerFullName).NotEmpty().WithMessage("Kimlik numarası boş olamaz");
+            RuleFor(e => e.CustomerFullName).NotEmpty().WithMessage("Ad alanı boş olamaz");
             RuleFor(e => e.CustomerFullName).NotNull().WithMessage("Kimlik numarası boş olamaz");
-            RuleFor(e => e.Date).NotEmpty().WithMessage("Kimlik numarası boş olamaz");
-            RuleFor(e => e.Date).NotNull().WithMessage("Kimlik numarası boş olamaz");
-            RuleFor(e => e.Cost).NotEmpty().WithMessage("Ad alanı boş olamaz");
-            RuleFor(e => e.Cost).NotNull().WithMessage("Ad alanı boş olamaz");
+            RuleFor(e => e.Date).NotEmpty().WithMessage("Tarih boş olamaz");
+            RuleFor(e => e.Date).NotNull().WithMessage("Tarih boş olamaz");
+            RuleFor(e => e.Cost).GreaterThan(0).WithMessage("Ücret 0 dan büyük olmalı");
             RuleFor(e => e.CustomerFullName).MinimumLength(6).WithMessage("İsim-Soyisim en az 6 haneli olmalı");
         }
     }

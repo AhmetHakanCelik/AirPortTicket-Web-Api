@@ -2,12 +2,11 @@
 
 namespace Business.Features.Bills.CreateBill
 {
-    internal class CreateBillValidator:AbstractValidator<CreateBillCommand>
+    public class CreateBillValidator:AbstractValidator<CreateBillCommand>
     {
         public CreateBillValidator() 
         { 
-            RuleFor(e => e.Identification_Number).NotEmpty().WithMessage("Kimlik numarası boş olamaz");
-            RuleFor(e => e.Identification_Number).NotNull().WithMessage("Kimlik numarası boş olamaz");
+            RuleFor(e => e.Identification_Number).GreaterThan(9999).WithMessage("Kimlik numarası en az 5 haneli olmalıdır");
             RuleFor(e => e.CustomerName).NotEmpty().WithMessage("Ad alanı boş olamaz");
             RuleFor(e => e.CustomerName).NotNull().WithMessage("Ad alanı boş olamaz");
             RuleFor(e => e.CustomerLastName).NotEmpty().WithMessage("soyad alanı boş olamaz");

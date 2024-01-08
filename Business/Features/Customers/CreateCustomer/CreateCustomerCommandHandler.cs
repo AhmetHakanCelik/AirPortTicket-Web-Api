@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Business.Features.Customers.CreateCustomer
 {
-    internal sealed class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand>
+    internal sealed class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand,Unit>
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IUnitOfWork _unitOfWork;
@@ -15,7 +15,7 @@ namespace Business.Features.Customers.CreateCustomer
             _unitOfWork = unitOfWork;
         }
 
-        public async Task Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
         {
             Customer customer = new()
             {
@@ -30,6 +30,8 @@ namespace Business.Features.Customers.CreateCustomer
 
             await _customerRepository.AddAsync(customer, cancellationToken);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return Unit.Value;
         }
     }
 }

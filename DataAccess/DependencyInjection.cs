@@ -1,6 +1,7 @@
-﻿
-using DataAccess.DbContext;
+﻿using DataAccess.DbContext;
 using DataAccess.Repositories;
+using DataAccess.Services;
+using Entities.Abstractions;
 using Entities.Models;
 using Entities.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,7 @@ namespace DataAccess
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IUserRepository,UserRepository>();
             services.AddScoped<IRoleRepository,RoleRepository>();
+            services.AddScoped<IJwtProvider,JwtProvider>();
 
             return services;
         }

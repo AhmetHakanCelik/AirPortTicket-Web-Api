@@ -14,8 +14,8 @@ namespace AirportTicket_Web_Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginCommand request, CancellationToken cancellationToken)
         {
-            await _mediator.Send(request, cancellationToken);
-            return NoContent();
+            var response =await _mediator.Send(request, cancellationToken);
+            return Ok(response);
         }
 
         [HttpPost]

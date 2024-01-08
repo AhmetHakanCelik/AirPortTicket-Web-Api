@@ -1,21 +1,25 @@
-﻿using Entities.Repositories;
+﻿using Entities.Abstractions;
+using Entities.Models;
+using Entities.Repositories;
 using MediatR;
 
 namespace Business.Features.Auth.Login
 {
-    internal sealed class LoginCommandHandler : IRequestHandler<LoginCommand>
+    internal sealed class LoginCommandHandler : IRequestHandler<LoginCommand,LoginCommandRepsonse>
     {
         private readonly IUserRepository _userRepository;
+        private readonly IJwtProvider _jwtProvider;
 
-        public LoginCommandHandler(IUserRepository userRepository)
+        public LoginCommandHandler(IUserRepository userRepository, IJwtProvider jwtProvider)
         {
             _userRepository = userRepository;
+            _jwtProvider = jwtProvider;
         }
 
-        public async Task Handle(LoginCommand request, CancellationToken cancellationToken)
+        public async Task<LoginCommandRepsonse> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            var emailcheck = await _userRepository.GetByIdAsync(e => e.Email == request.Email);
-            if(emailcheck is null)
+            AppUser user = await _userRepository.GetByIdAsync(e => e.Email == request.Email);
+            if(user is null)
             {
                 throw new ArgumentException("Geçersiz e posta adresi");
             }
@@ -26,6 +30,9 @@ namespace Business.Features.Auth.Login
                 throw new ArgumentException("Geçersiz Şifre");
             }
 
+            string token = await _jwtProvider.CreateToken(user);
+
+            return new(AccesToken: token, UserId: user.Id);
         }
     }
 }

@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Business.Features.Bills.CreateBill
 {
-    public sealed class CreateBillCommandHandler : IRequestHandler<CreateBillCommand>
+    public sealed class CreateBillCommandHandler : IRequestHandler<CreateBillCommand,Unit>
     {
         private readonly IBillRepository _billRepository;
         private readonly IUnitOfWork _unitOfWork;
@@ -15,7 +15,7 @@ namespace Business.Features.Bills.CreateBill
             _unitOfWork = unitOfWork;
         }
 
-        public async Task Handle(CreateBillCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateBillCommand request, CancellationToken cancellationToken)
         {
             Bill Bill = new()
             {
@@ -29,6 +29,8 @@ namespace Business.Features.Bills.CreateBill
 
             await _billRepository.AddAsync(Bill, cancellationToken);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return Unit.Value;
         }
     }
 }

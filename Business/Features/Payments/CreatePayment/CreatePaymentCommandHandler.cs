@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Business.Features.Payments.CreatePayment
 {
-    internal sealed class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand>
+    internal sealed class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand,Unit>
     {
         private readonly IPaymentRepository _paymentRepository;
         private readonly IUnitOfWork _unitOfWork;
@@ -15,7 +15,7 @@ namespace Business.Features.Payments.CreatePayment
             _unitOfWork = unitOfWork;
         }
 
-        public async Task Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
         {
             Payment payment = new()
             {
@@ -28,6 +28,8 @@ namespace Business.Features.Payments.CreatePayment
 
             await _paymentRepository.AddAsync(payment, cancellationToken);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return Unit.Value;
         }
     }
 }
