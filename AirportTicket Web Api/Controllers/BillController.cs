@@ -2,6 +2,7 @@
 using Business.Features.Bills.ListBills;
 using Business.Features.Bills.RemoveBill;
 using Business.Features.Bills.UpdateBill;
+using DataAccess.Authorization;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,7 @@ namespace AirportTicket_Web_Api.Controllers
         }
 
         [HttpPost]
+        [RoleFilter("Bill.Add")]
         public async Task<IActionResult> CreateBill(CreateBillCommand request,CancellationToken cancellationToken)
         {
             await _mediator.Send(request, cancellationToken);
@@ -21,6 +23,7 @@ namespace AirportTicket_Web_Api.Controllers
         }
 
         [HttpPost]
+        [RoleFilter("Bill.Update")]
         public async Task<IActionResult> UpdateBill(UpdateBillCommand request, CancellationToken cancellationToken)
         {
             await _mediator.Send(request, cancellationToken);
@@ -28,6 +31,7 @@ namespace AirportTicket_Web_Api.Controllers
         }
 
         [HttpPost]
+        [RoleFilter("Bill.Remove")]
         public async Task<IActionResult> RemoveBill(RemoveBillCommand request, CancellationToken cancellationToken)
         {
             await _mediator.Send(request, cancellationToken);
@@ -35,6 +39,7 @@ namespace AirportTicket_Web_Api.Controllers
         }
 
         [HttpPost]
+        [RoleFilter("Bill.GetAll")]
         public async Task<IActionResult> ListBill(ListBillsCommand request, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);

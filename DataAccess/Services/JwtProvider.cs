@@ -25,6 +25,7 @@ namespace DataAccess.Services
         {
             Claim[] claims = new Claim[]
             {
+                new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
                 new Claim("NameLastName",user.Name+" "+user.LastName)
             };
 

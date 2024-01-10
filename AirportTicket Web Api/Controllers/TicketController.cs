@@ -2,6 +2,7 @@
 using Business.Features.Tickets.ListTickets;
 using Business.Features.Tickets.RemoveTicket;
 using Business.Features.Tickets.UpdateTicket;
+using DataAccess.Authorization;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,7 @@ namespace AirportTicket_Web_Api.Controllers
         }
 
         [HttpPost]
+        [RoleFilter("Ticket.Add")]
         public async Task<IActionResult> CreateTicket(CreateTicketCommand request, CancellationToken cancellationToken)
         {
             await _mediator.Send(request, cancellationToken);
@@ -21,6 +23,7 @@ namespace AirportTicket_Web_Api.Controllers
         }
 
         [HttpPost]
+        [RoleFilter("Ticket.Update")]
         public async Task<IActionResult> UpdateTicket(UpdateTicketCommand request, CancellationToken cancellationToken)
         {
             await _mediator.Send(request, cancellationToken);
@@ -28,6 +31,7 @@ namespace AirportTicket_Web_Api.Controllers
         }
 
         [HttpPost]
+        [RoleFilter("Ticket.Remove")]
         public async Task<IActionResult> RemoveTicket(RemoveTicketCommand request, CancellationToken cancellationToken)
         {
             await _mediator.Send(request, cancellationToken);
@@ -35,6 +39,7 @@ namespace AirportTicket_Web_Api.Controllers
         }
 
         [HttpPost]
+        [RoleFilter("Ticket.GetAll")]
         public async Task<IActionResult> ListTicket(ListTicketsCommand request, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);
